@@ -40,19 +40,36 @@ function veletlenszam(also, felso) {
 
 function Megvizsgal()
 {
-    Kerdesgen();
-    let mondat = "htjrjgd d gylhgr hkj.";
+    
     var Megkap = document.getElementById("input").value;
-    for (let i = 0; i < mondat.length; i++) {
-        if (mondat[i].toLowerCase() === Megkap.toLowerCase()) {
+    for (let i = 0; i < megoldas.length; i++) {
+        if (megoldas[i].toLowerCase() === Megkap.toLowerCase()) {
           console.log("Az adott betű megtalálható a mondatban.");
-          break;
+            var div = document.getElementById(i);
+            div.innerHTML=Megkap;
+          //break;
         }
       }
 }
-
+function Divgen()
+{
+    var hely = document.getElementById("allas");
+    var hossz = megoldas.length;
+    console.log(hossz);
+    for (let i = 0; i < hossz; i++) {
+        var div = document.createElement("div");
+        div.style.textAlign="center";  
+        div.style.height="50px";
+        div.style.width="50px";
+        div.style.border="2px solid black";
+        div.id=i;
+        console.log(div.id);
+        hely.appendChild(div);
+        }
+}
 function Main()
 {
     Kerdesgen();
+    Divgen();
 }
 Main();
