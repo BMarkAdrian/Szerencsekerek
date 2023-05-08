@@ -2,6 +2,13 @@
 var megoldas;
 var kerdes;
 var kor = 0;
+var jatekos1;
+var jatekos2;
+var jatekos3;
+var jatekos1pont = 0;
+var jatekos2pont = 0;
+var jatekos3pont = 0;
+
 function Kerdesgen()
 {
     var tomb = ["Közmondás","Hobbi","Filmcím","Márka","Híresség","Fiktív rajzfilm karakter","Országnév","Városnév"];
@@ -12,14 +19,14 @@ function Kerdesgen()
     if(kerdes == "Közmondás")
     {
         let lehetosegek = ["Jobb adni, mint kapni.","Kétszer ad, aki gyorsan ad.","Ki mint veti ágyát, úgy alussza álmát.","Ha kidobják az ajtón, bemegy az ablakon.","Nem babra megy a játék.","Alkuszik mint zsidó a gyapjura.","Az irott virágot sokan dicsérik, de senki se szagolja.","Rózsaágyban is félhetni tövistől.","Sötétben minden tehén fekete.","Hasznos munkának nincsen fáradsága."];
-        megoldas = lehetosegek[veletlenszam(0,10)];
+        megoldas = lehetosegek[veletlenszam(0,9)];
         console.log(megoldas);
         /*megoldas= xy */
     }
     else if(kerdes == "Filmcím")
     {
         let lehetosegek = ["Bosszúállók Végjáték","Star Wars Egy új remény","Nagypapa hadművelet", "Gyagyás gyilkosság","Családi üzelmek","A remény rabjai","Forrest Gump","Életrevalók","Elrabolva","Kapj el, ha tudsz!"];
-        megoldas = lehetosegek[veletlenszam(0,10)];
+        megoldas = lehetosegek[veletlenszam(0,9)];
         console.log(megoldas);
        /*megoldas= xy */
     }
@@ -33,35 +40,35 @@ function Kerdesgen()
     else if(kerdes == "Márka")
     {
         let lehetosegek = ["Gucci","Hermes","Amiri","Milka","Bugatti","Hugo Boss","Nike","Dior","Clive Christian","Loro Piana"];
-        megoldas = lehetosegek[veletlenszam(0,10)];
+        megoldas = lehetosegek[veletlenszam(0,9)];
         console.log(megoldas);
         /*megoldas= xy */
     }
     else if(kerdes == "Híresség")
     {
         let lehetosegek = ["Kanye West","Iman Gadzhi","Gáspár László","Andrew Tate","Sneako","Alex Eubank","Pap Olivér","Jordan B Peterson","Joji","Azariah"];
-        megoldas = lehetosegek[veletlenszam(0,10)];
+        megoldas = lehetosegek[veletlenszam(0,9)];
         console.log(megoldas);
         /*megoldas= xy */
     }
     else if(kerdes == "Fiktív rajzfilm karakter")
     {
         let lehetosegek = ["Miki egér","Mini Egér","Peter Griffin","Gideon Gleeful","Timmy Turner","Spongyabob Kockanadrág","Homer Simpson","Sterling Archer","Eric Cartmen","Rick Sanchez"];
-        megoldas = lehetosegek[veletlenszam(0,10)];
+        megoldas = lehetosegek[veletlenszam(0,9)];
         console.log(megoldas);
         /*megoldas= xy */
     }
     else if(kerdes == "Országnév")
     {
         let lehetosegek = ["Magyarország","Franciaország","Olaszország","Kanada","Japán","Oroszország","Kína","Egyesült Arab Emírségek","Svédország"];
-        megoldas = lehetosegek[veletlenszam(0,10)];
+        megoldas = lehetosegek[veletlenszam(0,9)];
         console.log(megoldas);
         /*megoldas= xy */
     }
     else if(kerdes == "Városnév")
     {
         let lehetosegek = ["Budapest","Manchester","Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch","Ököritófülpös","Chernelházadamonya","Debrecen","Nyíregyháza","Cegléd","Kecskemét","Siófok"];
-        megoldas = lehetosegek[veletlenszam(0,10)];
+        megoldas = lehetosegek[veletlenszam(0,9)];
         console.log(megoldas);
         /*megoldas= xy */
     }
@@ -118,9 +125,9 @@ function Divgen()
     for (let i = 0; i < hossz; i++) {
         var div = document.createElement("div");
         div.style.textAlign="center";  
-        div.style.height="50px";
-        div.style.width="50px";
-        div.style.border="2px solid black";
+        div.style.height="60px";
+        div.style.width="100%"
+        div.style.border="3px solid black";
         div.id=i;
         div.className="col";
         console.log(div.id);
@@ -144,8 +151,62 @@ function Jatekosmutat()
 
     }
 }
+function Telitalalat()
+{
+    var megkap = document.getElementById("telitalalat");
+    if(megkap == megoldas)
+    {
+        if(kor % 3 == 3)
+        {
+            alert()
+        }
+        else if(kor % 2 == 1)
+        {
+    
+        }
+        else if(kor % 3 == 0)
+        {
+    
+        }
+    }
+}
+
+function Jatekosgen()
+{
+    jatekos1 = "Guest"+veletlenszam(100,999999);
+    while(jatekos2 != jatekos1)
+    {
+        jatekos2="";
+        jatekos2 = "Guest"+veletlenszam(100,999999);
+    }
+    while(jatekos3 != jatekos2 && jatekos3 != jatekos1)
+    {
+        jatekos3="";
+        jatekos3 = "Guest"+veletlenszam(100,999999);
+    }
+    var nev1hely = document.getElementById("p1nev");
+    nev1hely.innerHTML=jatekos1;
+    var nev2hely = document.getElementById("p2nev");
+    nev2hely.innerHTML=jatekos2;
+    var nev3hely = document.getElementById("p3nev");
+    nev3hely.innerHTML=jatekos3;
+}
+
+
+function Pontok()
+{
+    var pont1hely = document.getElementById("p1pont");
+    pont1hely.innerHTML=jatekos1pont;
+    var pont2hely = document.getElementById("p2pont");
+    pont2hely.innerHTML=jatekos2pont;
+    var pont3hely = document.getElementById("p3pont");
+    pont3hely.innerHTML=jatekos3pont;
+    
+}
 function Main()
 {
+    Pontok();
+    Jatekosgen();
     Kerdesgen();
     Divgen();
     Jatekosmutat();
