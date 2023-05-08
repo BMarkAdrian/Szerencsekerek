@@ -27,24 +27,27 @@
     <div id="kerdes">
 
     </div>
-    </div
     <!--A téma divének vége.-->
     <!--Ide lehet beírnunk a betűket amiket választani akarunk. Az ezzel kapcsolatos műveleteket a Megvizsgal() function végzi el.-->
     <div class="input-group mb-3" id="valaszhely">
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" maxlength="1" minlength="1" id="input">
         <input type="button" id="button" onclick="Megvizsgal()" value="Submit">
     </div>
+    <div class="input-group mb-3" id="valaszhely">
+      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" minlength="4" id="telitalalat">
+      <input type="button" id="button" onclick="Telitalalat()" value="Submit">
+  </div>
     <!--Inputmező vége vége.-->
     <br>
       </br>
-    <div id="allas" class="row">
-            
-            </div
+      <div class="row" id="allas">
+
+      </div>
     <!--Itt vannak a kezeléshez szükséges gombok. Funkciók: még nincs, folyamatban van.-->
     <div id="toolbar">
       <input type="button" value="Pörgetés">
       <input type="button" value="Vegyél egy magánhangzót!">
-      <input type="button" value="Feladás">
+      <input type="button" value="Újragenerálást kérek!">
     </div>
     <!--Funkcíógombok vége.-->
     <br>
@@ -55,29 +58,39 @@
       </div>
       <!--Gyűjtő vége-->
       <!--Helykitöltő-->
-      <div id="uresdiv">
 
-      </div>
       <!--Helykitöltő vége.-->
       <!--Itt lesznek a játékosok képei. Itt majd az eddigi választás helyett az a terv, hogy a játékos saját képet illeszthessen be.Funkciók: most statikusan prfilképet,pontot és nevet mutat.-->
-      <div class="container">
-      <div class="row">
-        <div id="e1" class="col"><img src="./kepek/anonimus.jpg" alt="" class="jatekoskep"></div>
-        <div id="e2" class="col"><img src="./kepek/anonimus.jpg" alt="" class="jatekoskep"></div>
-        <div id="e3" class="col"><img src="./kepek/anonimus.jpg" alt="" class="jatekoskep"></div>
+
+      <div class="row" id="karakterek">
+        <div class="col"><div class="col oldalvon" id="p1pont">
+      
+        </div>
+        <img src="./kepek/anonimus.jpg" alt="" class="player">
+
+        <div class="col oldalvon" id="p1nev">
+
+        </div>
       </div>
-      <div class="row">
-        <div id="nev3" class="col"><p>Player 1</p></div>
-        <div id="nev2" class="col"><p>Player 2</p></div>
-        <div id="nev1" class="col"><p>Player 3</p></div>
+        <div class="col"><div class="col oldalvon" id="p2pont">
+
+        </div>
+        <img src="./kepek/anonimus.jpg" alt="" class="player">
+        <div class="col oldalvon" id="p2nev">
+
+        </div>
       </div>
-      <br><br><br><br><br>
-      <div class="row">
-        <div id="p1" class="col"><p>1000</p></div>
-        <div id="p2" class="col"><p>1000</p></div>
-        <div id="p3" class="col"><p>1000</p></div>
+        <div class="col">
+          <div class="col oldalvon" id="p3pont">
+
+          </div>
+          <img src="./kepek/anonimus.jpg" alt="" class="player">
+          <div class="col oldalvon" id="p3nev">
+
+          </div>
+        </div>
       </div>
-    </div>
+
     <!--Karakterlista vége-->
 </body>
 <script src="alap.js"></script>
