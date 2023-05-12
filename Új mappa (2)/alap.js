@@ -158,28 +158,60 @@ function Telitalalat()
     {
         if(kor % 3 == 3)
         {
-            alert()
+            alert(jatekos1+"telibetalált!");
+            jatekos1pont +=1000;
+            Pontok();
         }
-        else if(kor % 2 == 1)
+        else if(kor % 3 == 1)
         {
-    
+            alert(jatekos2+"telibetalált!");
+            jatekos3pont +=1000;
+            Pontok();
+            
         }
         else if(kor % 3 == 0)
         {
-    
+            alert(jatekos3+"telibetalált!");
+            jatekos3pont +=1000;
+            Pontok();
+            
+        }
+    }
+    else if(megkap != megoldas)
+    {
+        if(kor % 3 == 3)
+        {
+            alert(jatekos1+"elrontotta!");
+            jatekos1pont -=1000;
+            Pontok();
+        }
+        else if(kor % 3 == 1)
+        {
+            alert(jatekos2+"elrontotta!");
+            jatekos3pont -=1000;
+            Pontok();
+            
+        }
+        else if(kor % 3 == 0)
+        {
+            alert(jatekos3+"elrontotta!");
+            jatekos3pont -=1000;
+            Pontok();
+            
         }
     }
 }
 
+
 function Jatekosgen()
 {
     jatekos1 = "Guest"+veletlenszam(100,999999);
-    while(jatekos2 != jatekos1)
+    while(jatekos1 == jatekos2)
     {
         jatekos2="";
         jatekos2 = "Guest"+veletlenszam(100,999999);
     }
-    while(jatekos3 != jatekos2 && jatekos3 != jatekos1)
+    while(jatekos3 == jatekos2 || jatekos3 == jatekos1)
     {
         jatekos3="";
         jatekos3 = "Guest"+veletlenszam(100,999999);
