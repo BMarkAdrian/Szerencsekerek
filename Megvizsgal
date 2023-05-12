@@ -1,0 +1,51 @@
+function Megvizsgal()
+{
+    var Megkap = document.getElementById("input").value;
+    kor++;
+    let k = 0;
+    while (k < megoldas.length && !(megoldas[k].toLowerCase() === Megkap.toLowerCase()))
+    {
+        k++;
+    }
+    if (k < megoldas.length)
+    {
+        for (let i = 0; i < megoldas.length; i++) {
+            if (megoldas[i].toLowerCase() === Megkap.toLowerCase()) {
+              console.log("Az adott betű megtalálható a mondatban.");
+                var div = document.getElementById(i);
+                div.innerHTML=Megkap;
+            }
+        }
+    }
+    else
+    {
+        Rossz();
+    }
+}
+
+var rosszaktombje = new Array();
+function Rossz()
+{
+    var Megkap = document.getElementById("input").value;
+    var hely = document.getElementById("rosszak");
+    
+    if (!VaneTombben(rosszaktombje, Megkap))
+    {
+        rosszaktombje.push(Megkap);
+    }
+    for(let j = 0; j < rosszaktombje.length; j++)
+    {
+        hely.innerHTML = rosszaktombje.join(",");
+        console.log(rosszaktombje);
+    }
+}
+
+function VaneTombben(tomb, a)
+{
+    let i = 0;
+    while (i < tomb.length && tomb[i] != a)
+    {
+        i++;
+    }
+    return i < tomb.length;
+}
