@@ -266,7 +266,7 @@ function playAudio() {
 
 }
 
-var options = ["$100", "$10", "$25", "$250", "$30", "$1000", "$1", "$200", "$45", "$500", "$5", "$20", "Lose", "$1000000", "Lose", "$350", "$5", "$99"];
+var options = ["5p", "10p", "25p", "250p", "30p", "1000p", "20p", "200p", "45p", "500p", "5000p", "20p", "Broky", "10000p", "Broky", "350p", "5p", "5p"];
 
 var startAngle = 0;
 var arc = Math.PI / (options.length / 2);
@@ -305,9 +305,9 @@ function getColor(item, maxitem) {
 function drawRouletteWheel() {
   var canvas = document.getElementById("canvas");
   if (canvas.getContext) {
-    var outsideRadius = 130;
-    var textRadius = 90;
-    var insideRadius = 75;
+    var outsideRadius = 200;
+    var textRadius = 160;
+    var insideRadius = 125;
 
     ctx = canvas.getContext("2d");
     ctx.clearRect(0,0,500,500);
