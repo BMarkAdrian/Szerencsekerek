@@ -305,17 +305,17 @@ function getColor(item, maxitem) {
 function drawRouletteWheel() {
   var canvas = document.getElementById("canvas");
   if (canvas.getContext) {
-    var outsideRadius = 200;
-    var textRadius = 160;
-    var insideRadius = 125;
+    var outsideRadius = 180;
+    var textRadius = 145;
+    var insideRadius = 120;
 
     ctx = canvas.getContext("2d");
     ctx.clearRect(0,0,500,500);
 
     ctx.strokeStyle = "black";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 3;
 
-    ctx.font = 'bold 12px Helvetica, Arial';
+    ctx.font = 'bold 10px Helvetica, Arial';
 
     for(var i = 0; i < options.length; i++) {
       var angle = startAngle + i * arc;
