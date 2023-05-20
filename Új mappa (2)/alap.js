@@ -1,16 +1,77 @@
-
-var megoldas;
-var kerdes;
-var kor = 0;
 var jatekos1;
 var jatekos2;
 var jatekos3;
 var jatekos1pont = 0;
 var jatekos2pont = 0;
 var jatekos3pont = 0;
-
-function Kerdesgen()
+var megoldas;
+var kerdes;
+var kor = 0;
+function veletlenszam(also, felso) {
+    return Math.floor(Math.random() * (felso - also + 1) + also);
+}
+function Jatekosgen()
 {
+   jatekos1 = "Guest"+ veletlenszam(1,9) + veletlenszam(1,9) + veletlenszam(1,9) +veletlenszam(1,9) + veletlenszam(1,9);
+   jatekos2 = "Guest"+ veletlenszam(1,9) + veletlenszam(1,9) + veletlenszam(1,9) +veletlenszam(1,9) + veletlenszam(1,9);
+   jatekos3 = "Guest"+ veletlenszam(1,9) + veletlenszam(1,9) + veletlenszam(1,9) +veletlenszam(1,9) + veletlenszam(1,9);
+   if(jatekos2 == jatekos1)
+   {
+    jatekos2="";
+    jatekos2 = "Guest"+ veletlenszam(1,9) + veletlenszam(1,9) + veletlenszam(1,9) +veletlenszam(1,9) + veletlenszam(1,9);
+   }
+   else if(jatekos3 == jatekos1)
+   {
+    jatekos3="";
+    jatekos3 = "Guest"+ veletlenszam(1,9) + veletlenszam(1,9) + veletlenszam(1,9) +veletlenszam(1,9) + veletlenszam(1,9);
+   }
+   else if(jatekos3 == jatekos2)
+   {
+    jatekos2="";
+    jatekos2 = "Guest"+ veletlenszam(1,9) + veletlenszam(1,9) + veletlenszam(1,9) +veletlenszam(1,9) + veletlenszam(1,9);
+   }
+
+}
+
+function KarakterGen()
+{
+
+    var j1 = document.getElementById("k1");
+    var j2 = document.getElementById("k2");
+    var j3 = document.getElementById("k3");
+    j1.innerHTML+=jatekos1 + "-" + jatekos1pont+ "p";
+    j2.innerHTML+=jatekos2 + "-" + jatekos2pont+ "p";
+    j3.innerHTML+=jatekos3 + "-" + jatekos3pont + "p";
+}
+
+function GombokGen()
+{
+    var hely = document.getElementById("vezerlo");
+    var gomb1 = document.createElement("input");
+    var gomb2 = document.createElement("input");
+    var gomb3 = document.createElement("input");
+    gomb1.type="button";
+    gomb2.type="button";
+    gomb3.type="button";
+    gomb1.value="Jóváhagyás"
+    gomb1.onclick=Megvizsgal();
+    gomb3.value="Pörgetés"
+    gomb2.value="Reset"
+    hely.appendChild(gomb1);
+    hely.appendChild(gomb2);
+    hely.appendChild(gomb3);
+    gomb1.style.border="3px solid grey";
+    gomb1.style.borderRadius="5px";
+    
+
+    gomb2.style.border="3px solid grey";
+    gomb2.style.borderRadius="5px";
+
+    gomb3.style.border="3px solid grey";
+    gomb3.style.borderRadius="5px";
+}
+ function KerdesGen()
+ {
     var tomb = ["Közmondás","Hobbi","Filmcím","Márka","Híresség","Fiktív rajzfilm karakter","Országnév","Városnév"];
     kerdes = tomb[veletlenszam(0,7)];
     console.log(kerdes)
@@ -33,7 +94,7 @@ function Kerdesgen()
     else if(kerdes == "Hobbi")
     {
         let lehetosegek = ["Túrázás","Barkácsolás","Búvárkodás","Sakkozás","Horgolás","Rajzolás","Rejtvényfejtés","Programozás","Sportolás","Meditálás"];
-        megoldas = lehetosegek[veletlenszam(0,10)];
+        megoldas = lehetosegek[veletlenszam(0,9)];
         console.log(megoldas);
         /*megoldas= xy */
     }
@@ -73,173 +134,136 @@ function Kerdesgen()
         /*megoldas= xy */
     }
 }
+function Divgen()
+{
+  var hely = document.getElementById("negyzetek");
+  var hossz = megoldas.length;
+  console.log(hossz);
 
-function veletlenszam(also, felso) {
-    return Math.floor(Math.random() * (felso - also + 1) + also);
+  // Konténer elem létrehozása
+  var kontener = document.createElement("div");
+  kontener.style.display = "flex"; // Flexbox engedélyezése
+  kontener.style.flexWrap = "wrap"; // A div-ek sortörését engedélyezzük
+
+  for (let i = 0; i < hossz; i++) {
+    if(i == 17)
+    {
+        var br = document.createElement("br");
+        kontener.appendChild(br);
+    }
+    var div = document.createElement("div");
+    div.style.textAlign = "center";
+    div.style.height = "60px";
+    div.style.width = "5%";
+    div.style.border = "3px solid black";
+    div.id = i;
+    div.className = "col";
+    console.log(div.id);
+    
+    kontener.appendChild(div);
+  }
+
+  hely.appendChild(kontener);
 }
-
-
 function Megvizsgal()
 {
-    
-    var Megkap = document.getElementById("input").value;
     kor++;
-    for (let i = 0; i < megoldas.length; i++) {
-        if (megoldas[i].toLowerCase() === Megkap.toLowerCase()) {
-          console.log("Az adott betű megtalálható a mondatban.");
-            var div = document.getElementById(i);
-            div.innerHTML=Megkap;
-            
-            console.log(kor);
+    console.log(kor);
+    var Megkap = document.getElementById("input").value;
+    let k = 0;
+    while (k < megoldas.length && !(megoldas[k].toLowerCase() === Megkap.toLowerCase()))
+    {
+        k++;
+    }
+    if (k < megoldas.length)
+    {
+        
+        for (let i = 0; i < megoldas.length; i++) {
+            if (megoldas[i].toLowerCase() === Megkap.toLowerCase()) {
+              console.log("Az adott betű megtalálható a mondatban.");
+                var div = document.getElementById(i);
+                div.innerHTML=Megkap;
+            }
         }
-        else if(megoldas[i].toLowerCase() != Megkap.toLowerCase())
-        {
-            Rossz();
-            
-            console.log(kor);
-        }
-      }
-      
-    
+    }
+    else
+    {
+        
+        Rossz();
+    }
 }
-var rosszaktombje = [];
+
+var rosszaktombje = new Array();
 function Rossz()
 {
     var Megkap = document.getElementById("input").value;
     var hely = document.getElementById("rosszak");
     
-    rosszaktombje.push(Megkap);
+    if (!VaneTombben(rosszaktombje, Megkap))
+    {
+        rosszaktombje.push(Megkap);
+    }
     for(let j = 0; j < rosszaktombje.length; j++)
     {
-        hely.innerHTML=rosszaktombje[j]+",";
+        hely.innerHTML = rosszaktombje.join(",");
         console.log(rosszaktombje);
     }
-    
 }
 
-function Divgen()
+function VaneTombben(tomb, a)
 {
-    var hely = document.getElementById("allas");
-    var hossz = megoldas.length;
-    console.log(hossz);
-    for (let i = 0; i < hossz; i++) {
-        var div = document.createElement("div");
-        div.style.textAlign="center";  
-        div.style.height="60px";
-        div.style.width="100%"
-        div.style.border="3px solid black";
-        div.id=i;
-        div.className="col";
-        console.log(div.id);
-        hely.appendChild(div);
-        }
+    let i = 0;
+    while (i < tomb.length && tomb[i] != a)
+    {
+        i++;
+    }
+    return i < tomb.length;
 }
-
-
 function Jatekosmutat()
 {
     if(kor % 3 == 3)
     {
-
+        var cdiv = document.getElementById("k1");
+        cdiv.style.border ="5px solid green";
+        var cdiv2 = document.getElementById("k2");
+        cdiv2.style.border ="5px solid grey";
+        var cdiv3 = document.getElementById("k3");
+        cdiv3.style.border ="5px solid grey";
     }
     else if(kor % 2 == 1)
     {
-
+        var cdiv2 = document.getElementById("k2");
+        cdiv2.style.border ="5px solid green";
+        var cdiv = document.getElementById("k1");
+        cdiv.style.border ="5px solid grey";
+        var cdiv3 = document.getElementById("k3");
+        cdiv3.style.border ="5px solid grey";
     }
     else if(kor % 3 == 0)
     {
-
-    }
-}
-function Telitalalat()
-{
-    var megkap = document.getElementById("telitalalat");
-    if(megkap == megoldas)
-    {
-        if(kor % 3 == 3)
-        {
-            alert(jatekos1+"telibetalált!");
-            jatekos1pont +=1000;
-            Pontok();
-        }
-        else if(kor % 3 == 1)
-        {
-            alert(jatekos2+"telibetalált!");
-            jatekos3pont +=1000;
-            Pontok();
-            
-        }
-        else if(kor % 3 == 0)
-        {
-            alert(jatekos3+"telibetalált!");
-            jatekos3pont +=1000;
-            Pontok();
-            
-        }
-    }
-    else if(megkap != megoldas)
-    {
-        if(kor % 3 == 3)
-        {
-            alert(jatekos1+"elrontotta!");
-            jatekos1pont -=1000;
-            Pontok();
-        }
-        else if(kor % 3 == 1)
-        {
-            alert(jatekos2+"elrontotta!");
-            jatekos3pont -=1000;
-            Pontok();
-            
-        }
-        else if(kor % 3 == 0)
-        {
-            alert(jatekos3+"elrontotta!");
-            jatekos3pont -=1000;
-            Pontok();
-            
-        }
+        var cdiv3 = document.getElementById("k2");
+        cdiv3.style.border ="5px solid green";
+        var cdiv2 = document.getElementById("k2");
+        cdiv2.style.border ="5px solid grey";
+        var cdiv = document.getElementById("k1");
+        cdiv.style.border ="5px solid grey";
     }
 }
 
-
-function Jatekosgen()
+function PlayAudio()
 {
-    jatekos1 = "Guest"+veletlenszam(100,999999);
-    while(jatekos1 == jatekos2)
-    {
-        jatekos2="";
-        jatekos2 = "Guest"+veletlenszam(100,999999);
-    }
-    while(jatekos3 == jatekos2 || jatekos3 == jatekos1)
-    {
-        jatekos3="";
-        jatekos3 = "Guest"+veletlenszam(100,999999);
-    }
-    var nev1hely = document.getElementById("p1nev");
-    nev1hely.innerHTML=jatekos1;
-    var nev2hely = document.getElementById("p2nev");
-    nev2hely.innerHTML=jatekos2;
-    var nev3hely = document.getElementById("p3nev");
-    nev3hely.innerHTML=jatekos3;
-}
+var x = document.getElementById("myAudio"); 
 
+function playAudio() { 
+  x.play(); 
+} 
 
-function Pontok()
-{
-    var pont1hely = document.getElementById("p1pont");
-    pont1hely.innerHTML=jatekos1pont;
-    var pont2hely = document.getElementById("p2pont");
-    pont2hely.innerHTML=jatekos2pont;
-    var pont3hely = document.getElementById("p3pont");
-    pont3hely.innerHTML=jatekos3pont;
-    
 }
 function Main()
 {
-    Pontok();
     Jatekosgen();
-    Kerdesgen();
+    KarakterGen();
+    KerdesGen();
     Divgen();
     Jatekosmutat();
 }
