@@ -1,5 +1,3 @@
-var osszesbetu = Array();
-
 function Megvizsgal()
 {
   var Megkap = document.getElementById("input").value;
@@ -10,7 +8,6 @@ function Megvizsgal()
     button2.disabled = true;
     gombsor2.disabled = true;
     porgete.disabled = false;
-    osszesbetu.push(Megkap);
     let k = 0;
     while (k < megoldas.length && !(megoldas[k].toLowerCase() === Megkap.toLowerCase()))
     {
@@ -25,29 +22,154 @@ function Megvizsgal()
                 div.innerHTML=Megkap;
             }
         }
-    }
-    else
-    {
-        
-        Rossz();
-    }
-    kor++;
-    console.log(kor);
-    Jatekosmutat();
-    gombsor.value = "";
-    gombsor2.value = "";
-    let j = 0;
-    for (let i = 0; i < megoldas.length; i++)
-    {
-      if (document.getElementById(i).innerHTML === megoldas[i].toLowerCase())
-      {
-        j++;
+    
+        if(kor % 3 == 0)
+        {
+          console.log(betusPont);
+          if(betusPont == 0.5)
+          {
+            jatekos1pont *= betusPont;
+            j1.innerHTML=jatekos1 + "-" + jatekos1pont+ "p";
+          }
+          else if(betusPont == 0.25)
+          {
+            jatekos1pont *= betusPont;
+            j1.innerHTML=jatekos1 + "-" + jatekos1pont+ "p";
+          }
+          else if(betusPont == 0)
+          {
+            jatekos1pont *= 0;
+            j1.innerHTML=jatekos1 + "-" + jatekos1pont+ "p";
+          } 
+          else if(betusPont == "x2")
+          {
+            jatekos1pont *= 2;
+            j1.innerHTML=jatekos1 + "-" + jatekos1pont+ "p";
+          }
+          else if(betusPont == 1.5)
+          {
+            jatekos1pont *= 1.5;
+            j1.innerHTML=jatekos1 + "-" + jatekos1pont+ "p";
+          }
+          else if(betusPont == 0.5)
+          {
+            jatekos1pont *= 0.5;
+            j1.innerHTML=jatekos1 + "-" + jatekos1pont+ "p";
+          }
+          else
+          {
+            jatekos1pont += betusPont;
+            j1.innerHTML=jatekos1 + "-" + jatekos1pont+ "p";
+          }  
+        }
+        else if(kor % 3 == 1)
+        {
+          console.log(betusPont);
+          if(betusPont == 0.5)
+          {
+            jatekos2pont *= betusPont;
+            j2.innerHTML=jatekos2 + "-" + jatekos2pont+ "p";
+          }
+          else if(betusPont == 0.25)
+          {
+            jatekos2pont *= betusPont;
+            j2.innerHTML=jatekos2 + "-" + jatekos2pont+ "p";
+          }
+          else if(betusPont == 0)
+          {
+            jatekos2pont *= 0;
+            j2.innerHTML=jatekos2 + "-" + jatekos2pont+ "p";
+          } 
+          else if(betusPont == "x2")
+          {
+            jatekos2pont *= 2;
+            j2.innerHTML=jatekos2 + "-" + jatekos2pont+ "p";
+          }
+          else if(betusPont == 1.5)
+          {
+            jatekos2pont *= 1.5;
+            j2.innerHTML=jatekos2 + "-" + jatekos2pont+ "p";
+          }
+          else if(betusPont == 0.5)
+          {
+            jatekos2pont *= 0.5;
+            j2.innerHTML=jatekos2 + "-" + jatekos2pont+ "p";
+          }
+          else
+          {
+            jatekos2pont += betusPont;
+            j2.innerHTML=jatekos2 + "-" + jatekos2pont+ "p";
+          }  
+        }
+        else if(kor % 3 == 2)
+        {
+          console.log(betusPont);
+          if(betusPont == 0.5)
+          {
+            jatekos3pont *= betusPont;
+            j3.innerHTML=jatekos3 + "-" + jatekos3pont+ "p";
+          }
+          else if(betusPont == 0.25)
+          {
+            jatekos3pont *= betusPont;
+            j3.innerHTML=jatekos3 + "-" + jatekos3pont+ "p";
+          }
+          else if(betusPont == 0)
+          {
+            jatekos3pont *= 0;
+            j3.innerHTML=jatekos3 + "-" + jatekos3pont+ "p";
+          } 
+          else if(betusPont == "x2")
+          {
+            jatekos3pont *= 2;
+            j3.innerHTML=jatekos3 + "-" + jatekos3pont+ "p";
+          }
+          else if(betusPont == 1.5)
+          {
+            jatekos3pont *= 1.5;
+            j3.innerHTML=jatekos3 + "-" + jatekos3pont+ "p";
+          }
+          else if(betusPont == 0.5)
+          {
+            jatekos3pont *= 0.5;
+            j3.innerHTML=jatekos3 + "-" + jatekos3pont+ "p";
+          }
+          else
+          {
+            jatekos3pont += betusPont;
+            j3.innerHTML=jatekos3 + "-" + jatekos3pont+ "p";
+          }  
+        }
       }
-    }
-    console.log(j);
-    if (j == megoldas.length)
-    {
-      //Popup
-    }
+
+      else
+      {
+          kor++;
+          Rossz();
+      }
+      
+      console.log(kor);
+      Jatekosmutat();
+      gombsor.value = "";
+      gombsor2.value = "";
+      let j = 0;
+      for (let i = 0; i < megoldas.length; i++)
+      {
+        if (document.getElementById(i).innerHTML === megoldas[i].toLowerCase())
+        {
+          j++;
+        }
+      }
+      console.log(j);
+      if (j == megoldas.length)
+      {
+        console.log("fasz");
+        DivTorol();
+        KerdesGen();
+        Divgen();
+        Actuallkorszamol++;
+        AktKOr();
+        //Popup
+      }
   }
 }
