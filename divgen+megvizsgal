@@ -1,0 +1,82 @@
+function Divgen()
+{
+  var hely = document.getElementById("negyzetek");
+  var hossz = megoldas.length;
+  console.log(hossz);
+
+  // Konténer elem létrehozása
+  var kontener = document.createElement("div");
+  kontener.style.display = "flex"; // Flexbox engedélyezése
+  kontener.style.flexWrap = "wrap"; // A div-ek sortörését engedélyezzük
+
+  for (let i = 0; i < hossz; i++) {
+    if(i == 17)
+    {
+        var br = document.createElement("br");
+        kontener.appendChild(br);
+    }
+    var div = document.createElement("div");
+    div.style.textAlign = "center";
+    div.style.height = "60px";
+    div.style.width = "5%";
+    div.style.border = "3px solid black";
+    div.id = i;
+    div.className = "col";
+    console.log(div.id);
+    if (megoldas[i].toLowerCase() === " ")
+    {
+      div.innerHTML = " ";
+    }
+    
+    kontener.appendChild(div);
+  }
+
+  hely.appendChild(kontener);
+}
+function Megvizsgal()
+{
+    button.disabled = true;
+    gombsor.disabled = true;
+    button2.disabled = true;
+    gombsor2.disabled = true;
+    porgete.disabled = false;
+    var Megkap = document.getElementById("input").value;
+    let k = 0;
+    while (k < megoldas.length && !(megoldas[k].toLowerCase() === Megkap.toLowerCase()))
+    {
+        k++;
+    }
+    if (k < megoldas.length)
+    {
+        for (let i = 0; i < megoldas.length; i++) {
+            if (megoldas[i].toLowerCase() === Megkap.toLowerCase()) {
+              console.log("Az adott betű megtalálható a mondatban.");
+                var div = document.getElementById(i);
+                div.innerHTML=Megkap;
+            }
+        }
+    }
+    else
+    {
+        
+        Rossz();
+    }
+    kor++;
+    console.log(kor);
+    Jatekosmutat();
+    gombsor.value = "";
+    gombsor2.value = "";
+    let j = 0;
+    for (let i = 0; i < megoldas.length; i++)
+    {
+      if (document.getElementById(i).innerHTML === megoldas[i].toLowerCase())
+      {
+        j++;
+      }
+    }
+    console.log(j);
+    if (j == megoldas.length)
+    {
+      //Popup
+    }
+}
