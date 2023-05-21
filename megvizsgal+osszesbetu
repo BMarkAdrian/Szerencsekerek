@@ -1,0 +1,53 @@
+var osszesbetu = Array();
+
+function Megvizsgal()
+{
+  var Megkap = document.getElementById("input").value;
+  if (!VaneTombben(osszesbetu, Megkap))
+  {
+    button.disabled = true;
+    gombsor.disabled = true;
+    button2.disabled = true;
+    gombsor2.disabled = true;
+    porgete.disabled = false;
+    osszesbetu.push(Megkap);
+    let k = 0;
+    while (k < megoldas.length && !(megoldas[k].toLowerCase() === Megkap.toLowerCase()))
+    {
+        k++;
+    }
+    if (k < megoldas.length)
+    {
+        for (let i = 0; i < megoldas.length; i++) {
+            if (megoldas[i].toLowerCase() === Megkap.toLowerCase()) {
+              console.log("Az adott betű megtalálható a mondatban.");
+                var div = document.getElementById(i);
+                div.innerHTML=Megkap;
+            }
+        }
+    }
+    else
+    {
+        
+        Rossz();
+    }
+    kor++;
+    console.log(kor);
+    Jatekosmutat();
+    gombsor.value = "";
+    gombsor2.value = "";
+    let j = 0;
+    for (let i = 0; i < megoldas.length; i++)
+    {
+      if (document.getElementById(i).innerHTML === megoldas[i].toLowerCase())
+      {
+        j++;
+      }
+    }
+    console.log(j);
+    if (j == megoldas.length)
+    {
+      //Popup
+    }
+  }
+}
