@@ -1,0 +1,46 @@
+function Telitalalat()
+{
+    button.disabled = true;
+    gombsor.disabled = true;
+    button2.disabled = true;
+    gombsor2.disabled = true;
+    porgete.disabled = false;
+    let k = 0;
+    if (gombsor2.value.length == megoldas.length)
+    {
+      for (let i = 0; i < megoldas.length; i++)
+      {
+        if (megoldas[i].toLowerCase() === gombsor2.value[i].toLowerCase())
+        {
+          k++;
+        }
+      }
+    }
+    if (k == megoldas.length)
+    {
+      if(kor % 3 == 0)
+      {
+          jatekos1pont += 1000;
+          j1.innerHTML=jatekos1 + "-" + jatekos1pont+ "p";
+      }
+      else if(kor % 3 == 1)
+      {
+          jatekos2pont += 1000;
+          j2.innerHTML=jatekos2 + "-" + jatekos2pont+ "p";
+      }
+      else if(kor % 3 == 2)
+      {
+          jatekos3pont += 1000;
+          j3.innerHTML=jatekos3 + "-" + jatekos3pont+ "p";
+      }
+    }
+    kor++;
+    gombsor.value = "";
+    gombsor2.value = "";
+    console.log(kor);
+    Jatekosmutat();
+    KerdesGen();
+    Divgen();
+    Actuallkorszamol++;
+    AktKOr();
+}
