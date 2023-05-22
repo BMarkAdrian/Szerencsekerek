@@ -1,11 +1,26 @@
-console.log("_   __              _ _       _   _          ______       _ _              ___  ___           _                 ______       _     _                  ______       _ _       _   ");
-console.log("| | / /             (_) |     | | | |      _  | ___ \\     | | |             |  \\/  |          | |                | ___ \\     (_)   | |                 | ___ \\     | (_)     | |  ");
-console.log("| |/ /  ___  ___ _____| |_ ___| |_| |_ ___(_) | |_/ / __ _| | | ___  _ __   | .  . | __ _ _ __| | __   ___  ___  | |_/ /_   _ _  __| | ___  ___  ___   | |_/ / __ _| |_ _ __ | |_ ");
-console.log("|    \\ / _ \\/ __|_  / | __/ _ \\ __| __/ _ \\   | ___ \\/ _` | | |/ _ \\| '_ \\  | |\\/| |/ _` | '__| |/ /  / _ \\/ __| | ___ \\ | | | |/ _` |/ _ \\/ __|/ _ \\  | ___ \\/ _` | | | '_ \\| __|");
-console.log("| |\\  \\  __/\\__ \\/ /| | ||  __/ |_| ||  __/_  | |_/ / (_| | | | (_) | | | | | |  | | (_| | |  |   <  |  __/\\__ \\ | |_/ / |_| | | (_| | (_) \\__ \\ (_) | | |_/ / (_| | | | | | |_ ");
-console.log("\\_| \\_/\\___||___/___|_|\\__\\___|\\__|\\__\\___(_) \\____/ \\__,_|_|_|\\___/|_| |_| \\_|  |_/\\__,_|_|  |_|\\_\\  \\___||___/ \\____/ \\__,_| |\\__,_|\\___/|___/\\___/  \\____/ \\__,_|_|_|_| |_|");
-console.log("                                                                                                                            _/ |                                                 ");
-console.log("                                                                                                                           |__/                                                  ");
+console.log(" ____  __.                    .__  __          __    __              ");
+console.log("|    |/ _|____   _____________|__|/  |_  _____/  |__/  |_  ____   /\\ ");
+console.log("|      <_/ __ \\ /  ___/\\___   /  \\   __\\/ __ \\   __\\   __\\/ __ \\  \\/ ");
+console.log("|    |  \\  ___/ \\___ \\  /    /|  ||  | \\  ___/|  |  |  | \\  ___/  /\\ ");
+console.log("|____|__ \\___  >____  >_____ \\__||__|  \\___  >__|  |__|  \\___  > \\/ ");
+console.log("        \\/   \\/     \\/       \\/             \\/                \\/     ");
+console.log("__________        .__  .__                     _____                __    ");
+console.log("\\______   \\_____  |  | |  |   ____   ____     /     \\ _____ _______|  | __");
+console.log(" |    |  _/\\__  \\ |  | |  |  /  _ \\ /    \\   /  \\ /  \\\\__  \\\\_  __ \\  |/ /");
+console.log(" |    |   \\ / __ \\|  |_|  |_ (  <_> )   |  \\ /    Y    \\/ __ \\|  | \\/    < ");
+console.log(" |______  /(____  /____/____/ \\____/|___|  / \\____|__  (____  /__|  |__|_ \\");
+console.log("        \\/      \\/                      \\/          \\/     \\/           \\/");
+console.log("  ____   ______");
+console.log("_/ __ \\ /  ___/");
+console.log("\\  ___/ \\___ \\");
+console.log(" \\___  >____  >");
+console.log("     \\/     \\/");
+console.log("__________          __    .___                   __________        .__  .__        __   ");
+console.log("\\______   \\__ __   |__| __| _/____  __________   \\______   \\_____  |  | |__| _____/  |_ ");
+console.log(" |    |  _/  |  \\  |  |/ __ |/  _ \\/  ___/  _ \\   |    |  _/\\__  \\ |  | |  |/    \\   __\\");
+console.log(" |    |   \\  |  /  |  / /_/ (  <_> )___ \\  <_> )  |    |   \\ / __ \\|  |_|  |   |  \\  |  ");
+console.log(" |______  /____/\\__|  \\____ |\\____/____  >____/   |______  /(____  /____/__|___|  /__|  ");
+console.log("        \\/     \\______|    \\/          \\/                \\/      \\/             \\/      ");
 
 console.log("                                          .qd$$$$bp.");
 console.log("                                        .q$$$$$$$$$$m.");
@@ -56,7 +71,7 @@ gombsor.disabled = true;
 button2.disabled = true;
 gombsor2.disabled = true;
 porgete.disabled = false;
-var Actuallkorszamol = 5;
+var Actuallkorszamol = 1;
 var betusPont= 0;
 var osszesbetu = Array();
 var gyoztesnev;
@@ -217,6 +232,7 @@ function Divgen()
     if (megoldas[i].toLowerCase() === " ")
     {
       div.innerHTML = " ";
+      div.style.border="none";
     }
     
     kontener.appendChild(div);
@@ -393,6 +409,7 @@ function Megvizsgal()
     {
       console.log("fasz");
       DivTorol();
+      RosszBetukTorol();
       KerdesGen();
       Divgen();
       Actuallkorszamol++;
@@ -462,7 +479,7 @@ var rosszaktombje = new Array();
 function Rossz()
 {
     var Megkap = document.getElementById("input").value;
-    var hely = document.getElementById("rosszak");
+    var hely = document.getElementById("rosszakh");
     
     if (!VaneTombben(rosszaktombje, Megkap))
     {
@@ -616,6 +633,7 @@ function drawRouletteWheel() {
 }
 
 function spin() {
+  porgete.disabled = true;
   spinAngleStart = Math.random() * 10 + 10;
   spinTime = 0;
   spinTimeTotal = Math.random() * 3 + 4 * 1000;
@@ -682,6 +700,11 @@ function DivTorol() {
     var divElem = document.getElementById(x);
     divElem.remove();
   }
+}
+function RosszBetukTorol()
+{
+  var rossz = document.getElementById("rosszakh");
+  rossz.innerHTML="";
 }
 function togglePopup()
 {
