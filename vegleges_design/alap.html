@@ -11,39 +11,96 @@
     <title>Szerencsekerék</title>
 </head>
 <body>
-  <video autoplay muted loop id="myVideo">
-    <source src="star_-_121702 (1080p).mp4" type="video/mp4">
-  </video>
-  <audio id="myAudio">
-    <source src="onlymp3.to - Osu hit sound-1ZsEwMJ8SBM-256k-1656737663832.mp3" type="audio/ogg">
-  </audio>
-    <div id="kozeprelap">
-    <nav class="navbar ">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="./kepek/favkep.png" alt="" class="logo">Szerencsekerék</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="szabalyok.html">Játékszabályzat</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Fejlesztők</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">A projekt dokumentálása</a>
-              </li>
-              </li>
-            </ul>
-          </div>
+ 
+  <div class="popup" id="popup-1">
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="close-btn" onclick="togglePopup()">&times;</div>
+        <h1>Játék vége!</h1>
+        <p id="gyoztes">A győztes:</p>
+        <br><br>
+        <a href="alap.html"><input type="button" value="Vissza a menübe!" ></a>
+        <input type="button" value="Új játék!" onclick="Reset()">
+    </div>
+</div>
+    <nav class="navbar">
+        <div class="container-fluid" id="masikdiv">
+          <a href="alap.html"><span class="navbar-brand mb-0 h1"><img src="./kepek/nyil.png" alt="" class="visszanyil"></span></a><h1 id="kor"></h1>
         </div>
       </nav>
-    </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <div id="start">
-    <a href="jatek.html"><input type="button" value="Start" class='start-btn' onclick="PlayAudio()"></a>
-    </div>
+      <br><br>
+      <div class="container">
+        <div class="row">
+          <div class="col-4">
+            <div id="baldiv">
+              <div id="karakterek">
+                  <div id="k1">
+                    <img src="./kepek/anonimus.png" alt="" class="an">
+                    <p id="j1"></p>
+                  </div>
+                  <br>
+                  <div id="k2">
+                    <img src="./kepek/anonimus.png" alt="" class="an">
+                    <p id="j2"></p>
+                  </div>
+                  <br>
+                  <div id="k3">
+                    <img src="./kepek/anonimus.png" alt="" class="an">
+                    <p id="j3"></p>
+                  </div>
+
+              </div>
+                <br>
+                <div id="vezerlo">
+                  <input type="button" value="Pörgetés" id="spin">
+                  <input type="button" value="Reset" id="reset" onclick="Reset()">
+                </div>
+                
+                <br>
+                <div id="rosszak">
+                  <h1>Rossz betűk:</h1>
+                  <p id="rosszakh"></p>
+                </div>
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+            </div>
+          </div>
+          <div class="col-8">
+            <div id="jobbdiv">
+                <div id="kerdes">
+
+                </div>
+                <br>
+                <div id="negyzetek">
+
+                </div>
+                <br><br>
+                <h1 id="megoldooo">Csak egy betű!</h1>
+                <div class="input-group mb-3" id="valaszhely">
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" maxlength="1" minlength="1" id="input">
+                    <input type="button" id="button" onclick="Megvizsgal()" value="Jóváhagyás">
+                </div>
+                <h1 id="megoldooo">Teljes megoldás!</h1>
+                <div class="input-group mb-3" id="valaszhely">
+                  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" minlength="4" id="telitalalat">
+                  <input type="button" id="button2" onclick="Telitalalat()" value="Jóváhagyás">
+              </div>
+              <div id="porgetoscucc">
+                <div class="containerke text-center">
+                      <canvas id="canvas" width="500" height="500">
+
+                      </canvas>
+                  </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        </div>
+        
 </body>
+<script src="alpa.js"></script>
 </html>
