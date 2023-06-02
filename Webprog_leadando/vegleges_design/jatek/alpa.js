@@ -732,7 +732,7 @@ function Gyoztes()
     gyoztesnev = jatekos3;
   }
   var nev = document.getElementById("gyoztes");
-  nev.innerHTML += gyoztesnev;
+  nev.innerHTML += " " + gyoztesnev;
 }
 
 
